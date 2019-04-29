@@ -6,8 +6,8 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include "UnsortedType.hpp"
 
-enum ERROR_CODE {SUCCESS, OVER_FLOW, UNDER_FLOW};
 enum STATUS {EMPTY, FULL};
 
 struct StudentH{

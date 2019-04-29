@@ -1,11 +1,13 @@
 #include <iostream>
-#include "HashTable.hpp"
+#include "HashTable2.hpp"
+//#include "HashTable.hpp"
 
-void printStudent(int, HashTable&);
+//void printStudent(int, HashTable&);
+void printStudent(int, HashTable2&); // overloaded for exc 2
 
 int main() {
     
-    HashTable table;
+    HashTable2 table;
     int id;
     
     std::cout << "Initial Table: \n";
@@ -33,7 +35,7 @@ int main() {
 }
 
 // non member function taking id and printing details
-void printStudent(int id, HashTable& table){
+void printStudent(int id, HashTable2& table){
     Student tempStudent;
     tempStudent.setId(id);
     bool found;
@@ -47,5 +49,5 @@ void printStudent(int id, HashTable& table){
     }
     else
         std::cout << "Student Not Found...\n";
-    
 }
+

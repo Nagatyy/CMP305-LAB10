@@ -44,7 +44,7 @@ void  UnsortedType::RetrieveItem(ItemType& item, bool& found){
             temp = temp -> next;
     }
 }
-void  UnsortedType::InsertItem(ItemType item){
+ERROR_CODE UnsortedType::InsertItem(ItemType item){
     
     int holder;
     bool found = itemExists(item, holder);
@@ -56,12 +56,19 @@ void  UnsortedType::InsertItem(ItemType item){
         
         listData = temp;
         length++;
+        return SUCCESS;
     }
+    else
+        return OVER_FLOW;
     //else
     //std::cout << "Innsertion failed. Item already exists...\n";
     
 }
-void  UnsortedType::DeleteItem(ItemType item){
+ERROR_CODE  UnsortedType::DeleteItem(ItemType item){
+    
+    if(isEmpty())
+        return UNDER_FLOW;
+    
     NodeType* location = listData;
     
     if (location->info == item)
@@ -69,7 +76,7 @@ void  UnsortedType::DeleteItem(ItemType item){
         listData = location->next;
         delete location;
         length--;
-        return;
+        return SUCCESS;
     }
     NodeType* tloc;
     while (location->next != NULL)
@@ -80,7 +87,7 @@ void  UnsortedType::DeleteItem(ItemType item){
             location->next = tloc->next;
             delete tloc;
             length--;
-            return;
+            return SUCCESS;
         }
         else{
             tloc = tloc->next;
@@ -88,7 +95,7 @@ void  UnsortedType::DeleteItem(ItemType item){
         }
         
     }
-    return;
+    return UNDER_FLOW;
 }
 void  UnsortedType::ResetList(){
     currentPos = listData;
@@ -96,15 +103,28 @@ void  UnsortedType::ResetList(){
 /*
  Works Cyclically ie when we reach the last item, we go back to the first
  */
-void  UnsortedType::GetNextItem(ItemType&  item){
+ERROR_CODE UnsortedType::GetNextItem(ItemType&  item, bool& finished){
     
-    if(currentPos == NULL)  // once you are on the last element (or getnext wasnt called yet), go to the first
+    finished = false;
+    
+    if(isEmpty()){
+        //std::cout << "List is Empty \n";
+        finished = true;
+        return SUCCESS;
+    }
+    
+    if(currentPos == NULL){ // once you are on the last element, go to the first
         currentPos = listData;
-    
+        item = currentPos -> info;
+        finished = true;
+        return SUCCESS;
+
+    }
+   
     item = currentPos -> info;
     currentPos = currentPos -> next;
     
-    
+    return SUCCESS;
 }
 // checks if an item exits and returns its index, if it doesnt exist returns -1
 bool UnsortedType::itemExists(const ItemType& item, int& index){
@@ -172,7 +192,7 @@ UnsortedType UnsortedType::operator =(const UnsortedType& other){
         
         listData = NULL;
         length = 0;
-        currentPos = other.currentPos;
+        currentPos = listData;
         
         for(int i = 0; i < other.length; i++){
             InsertItem(temp -> info);

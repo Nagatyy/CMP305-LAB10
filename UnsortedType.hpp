@@ -6,9 +6,11 @@
 #include "Student.hpp"
 typedef Student ItemType;
 
+enum ERROR_CODE {SUCCESS, OVER_FLOW, UNDER_FLOW};
+
 struct NodeType{
     ItemType info;
-    NodeType* next;
+    NodeType* next = NULL;
 };
 
 class  UnsortedType{
@@ -26,10 +28,11 @@ public:
     bool   IsFull()  const;
     int    Length()  const;
     void   RetrieveItem(ItemType& item, bool& found);
-    void   InsertItem(ItemType  item);
-    void   DeleteItem(ItemType  item);
+    ERROR_CODE InsertItem(ItemType  item);
+    ERROR_CODE   DeleteItem(ItemType  item);
     void   ResetList();
-    void   GetNextItem(ItemType&  item);
+    ERROR_CODE GetNextItem(ItemType&  item, bool&);
+    bool isEmpty(); // checks if list is already empty
     
 private :
     NodeType*  listData;
@@ -39,7 +42,6 @@ private :
     void deleteList();
     // Checks if an item exists in list, int stores the index
     bool itemExists(const ItemType&, int&);
-    bool isEmpty(); // checks if list is already empty
     
 } ;
 

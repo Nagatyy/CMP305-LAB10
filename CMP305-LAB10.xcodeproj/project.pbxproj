@@ -11,6 +11,7 @@
 		798E83DF227581CE00D32C95 /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 798E83DD227581CE00D32C95 /* Student.cpp */; };
 		798E83E2227583F800D32C95 /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 798E83E0227583F800D32C95 /* HashTable.cpp */; };
 		798E83E6227657D200D32C95 /* UnsortedType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 798E83E4227657D200D32C95 /* UnsortedType.cpp */; };
+		798E83E92276DDB700D32C95 /* HashTable2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 798E83E72276DDB700D32C95 /* HashTable2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,8 @@
 		798E83E32276274B00D32C95 /* student.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = student.txt; sourceTree = "<group>"; };
 		798E83E4227657D200D32C95 /* UnsortedType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnsortedType.cpp; sourceTree = "<group>"; };
 		798E83E5227657D200D32C95 /* UnsortedType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnsortedType.hpp; sourceTree = "<group>"; };
+		798E83E72276DDB700D32C95 /* HashTable2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable2.cpp; sourceTree = "<group>"; };
+		798E83E82276DDB700D32C95 /* HashTable2.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HashTable2.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,8 @@
 		798E83CA2275815E00D32C95 = {
 			isa = PBXGroup;
 			children = (
+				798E83E72276DDB700D32C95 /* HashTable2.cpp */,
+				798E83E82276DDB700D32C95 /* HashTable2.hpp */,
 				798E83E4227657D200D32C95 /* UnsortedType.cpp */,
 				798E83E5227657D200D32C95 /* UnsortedType.hpp */,
 				798E83E32276274B00D32C95 /* student.txt */,
@@ -135,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798E83E92276DDB700D32C95 /* HashTable2.cpp in Sources */,
 				798E83D72275815E00D32C95 /* main.cpp in Sources */,
 				798E83E6227657D200D32C95 /* UnsortedType.cpp in Sources */,
 				798E83DF227581CE00D32C95 /* Student.cpp in Sources */,

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string>
 
-const int MAX_ITEMS = 100;
+const int MAX_ITEMS = 5;
 
 /* no need for big 3 since no dynamic memory*/
 class  Student{
